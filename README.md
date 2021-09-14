@@ -1,24 +1,22 @@
-# untitled
+# Application showing the text entered
 
-## Project setup
+## How to run in local mahine
+
+> Node and npm must be pre-installed
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## Run using docker
+
 ```
-npm run build
+docker build -t name-of-image .
 ```
 
-### Lints and fixes files
 ```
-npm run lint
+docker run --rm -p 80:80 name-of-image
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
