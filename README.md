@@ -1,24 +1,20 @@
-# counterapp
-
-## Project setup
+# Simple Counter Application
+This is a simple counter application
+## Project setup in local machine
+> Node and npm must be pre-installed
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## Run using docker
+
 ```
-npm run build
+docker build -t name-of-image .
 ```
 
-### Lints and fixes files
 ```
-npm run lint
+docker run --rm -d -p 80:80 name-of-image
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
