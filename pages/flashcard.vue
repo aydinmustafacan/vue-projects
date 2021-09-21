@@ -2,14 +2,20 @@
   <div id="app">
     <main class="page-container">
       <header class="page-header">
-
-        <!-- end of top message -->
         <h1 class="card2">Simple Flashcard App</h1>
-        <Search @searchTrigger="searchCards"></Search>
       </header>
-      <!-- end of page header -->
+
       <AddNewCard @addCardTrigger="addCard"></AddNewCard>
-      <p class="card2">You have liked {{ likes }} cards so far</p>
+      <p class="card2"></p>
+      <a href="#" class="card3 max-w-sm text-2xl font-bold leading-tight">
+        <span class="link link-underline link-underline-black text-blue-50"> You have liked {{ likes }} cards so far </span>
+      </a>
+
+
+      <p class="card2"></p>
+      <a href="#" class="font-display max-w-sm text-2xl font-bold leading-tight">
+        <span class="link link-underline link-underline-black text-black"> Click on the Flashcards to see them change </span>
+      </a>
       <ul class="grid grid-cols-6 gap-4">
         <Card
             v-for="card in filteredData"
@@ -20,6 +26,18 @@
         ></Card>
       </ul>
       <!-- end of cards box -->
+      <p class="card2"></p>
+
+
+
+
+
+      <a href="#" class="card3 max-w-sm text-2xl font-bold leading-tight">
+        <span class="link link-underline link-underline-white text-blue-50">
+        Enjoy!
+      </span>
+      </a>
+      <p class="card2"></p>
     </main>
   </div>
 </template>
@@ -39,7 +57,10 @@ let cards = [
     back: "First back Lorem ipsum and Lorem ipsum 😎",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
+
   },
   {
     id: uuidv4(),
@@ -47,7 +68,9 @@ let cards = [
     back: "One half back Lorem ipsum and Lorem ipsum🤣",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   },
   {
     id: uuidv4(),
@@ -55,7 +78,9 @@ let cards = [
     back: "sec backLorem ipsum and Lorem ipsum 📅",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   },
   {
     id: uuidv4(),
@@ -63,7 +88,9 @@ let cards = [
     back: "third back Lorem ipsum and Lorem ipsum🔥",
     flipped: false,
     liked: true,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   },
   {
     id: uuidv4(),
@@ -71,7 +98,9 @@ let cards = [
     back: "forth back Lorem ipsum and Lorem ipsum😂",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   },
   {
     id: uuidv4(),
@@ -79,7 +108,9 @@ let cards = [
     back: "firth back Lorem ipsum and Lorem ipsum",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   },
   {
     id: uuidv4(),
@@ -87,7 +118,9 @@ let cards = [
     back: "sixth back Lorem ipsum and Lorem ipsum🔥",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   },
   {
     id: uuidv4(),
@@ -95,7 +128,9 @@ let cards = [
     back: "seventh back Lorem ipsum and Lorem ipsum Lorem ipsum and Lorem ipsum",
     flipped: false,
     liked: false,
-    color: `${colors[Math.floor(Math.random() * colors.length)]}`
+    color: `${colors[Math.floor(Math.random() * colors.length)]}`,
+    symbollike : "❤️",
+    dislike : "👎"
   }
 ];
 
@@ -137,18 +172,13 @@ export default {
     }
   },
   components: {
-
     AddNewCard,
     Card
   }
 };
 </script>
 <style lang="scss" scoped>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
+
 .wrapper {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
@@ -163,5 +193,33 @@ export default {
   .title {
     @apply text-6xl font-bold;
   }
+}
+.card3{
+  @apply p-12 rounded-lg text-blue-50 bg-gray-600 shadow-lg;
+  .title {
+    @apply text-6xl font-bold;
+  }
+}
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#A2C, #A2C)
+}
+
+
+.link-underline-purp {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#F11, #F30)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
 }
 </style>

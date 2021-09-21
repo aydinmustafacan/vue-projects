@@ -39,6 +39,8 @@ export default {
     return {
       front: "",
       back: "",
+      symbollike : "❤️",
+      dislike : "👎",
       error: false
     };
   },
@@ -53,11 +55,15 @@ export default {
           back: this.back,
           flipped: false,
           liked: false,
+          symbollike : "❤️",
+          dislike : "👎",
           color: `${colors[Math.floor(Math.random() * colors.length)]}`
         };
         this.$emit("addCardTrigger", card);
         this.front = "";
         this.back = "";
+        this.symbollike = "❤️";
+        this.dislike = "👎";
         this.error = false;
       }
     }
